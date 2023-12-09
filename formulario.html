@@ -39,7 +39,7 @@
 
     </header>
     <main style="margin-top: 18px;">
-        <form  style="background-color:#f1eeee;"   >
+        <form style="background-color:#f1eeee;">
 
             <div class="row g-3" style="padding-left: 15%;padding-right: 15%;">
                 <h2 style="text-align: center;">Registro de aprendices 2024-1</h2>
@@ -71,7 +71,7 @@
 
                 <div class="col-md-3">
                     <label for="numDocumento" class="form-label">Número de documento</label>
-                    <input type="number" class="form-control" id="numDocumento"  required>
+                    <input type="number" class="form-control" id="numDocumento" required>
 
                 </div>
                 <div class="col-md-3">
@@ -80,29 +80,29 @@
                 </div>
                 <div class="col-md-4">
                     <label for="telefono" class="form-label">Teléfono</label>
-                    <input type="text" class="form-control" id="telefono"  required>
+                    <input type="text" class="form-control" id="telefono" required>
                 </div>
                 <div class="col-md-5">
                     <label for="correo" class="form-label">Correo electrónico</label>
-                    <input type="email" class="form-control" id="correo"  required>
+                    <input type="email" class="form-control" id="correo" required>
                 </div>
                 <div class="col-md-4">
                     <label for="municipio" class="form-label">Municipio de residencia</label>
-                    <input type="text" class="form-control" id="municipio"  required>
+                    <input type="text" class="form-control" id="municipio" required>
                 </div>
                 <div class="col-md-4">
                     <label for="localidad" class="form-label">Localidad de residencia</label>
-                    <input type="text" class="form-control" id="localidad"  required>
+                    <input type="text" class="form-control" id="localidad" required>
                 </div>
                 <div class="col-md-4">
                     <label for="barrio" class="form-label">Barrio de residencia</label>
-                    <input type="text" class="form-control" id="barrio"  required>
+                    <input type="text" class="form-control" id="barrio" required>
                 </div>
 
 
                 <div class="col-md-3">
                     <label for="acudiente" class="form-label">Nombre del acudiente</label>
-                    <input type="text" class="form-control" id="acudiente"  required>
+                    <input type="text" class="form-control" id="acudiente" required>
                 </div>
 
 
@@ -126,7 +126,7 @@
 
                 <div class="col-md-6">
                     <label for="colegio" class="form-label">Nombre del colegio donde se graduo</label>
-                    <input type="text" class="form-control" id="colegio"  required>
+                    <input type="text" class="form-control" id="colegio" required>
                 </div>
 
                 <div class="col-md-6">
@@ -135,7 +135,7 @@
                     <div class="input-group has-validation">
                         <select class="form-select" aria-label="Default select example" id="programa" required>
                             <option value="" disabled selected>Seleccionar...</option>
-                            <option value="1">Tecnólogo en Análisis y Desarrollo de Software</option>
+                            <option value="Tecnólogo en Análisis y Desarrollo de Software">Tecnólogo en Análisis y Desarrollo de Software</option>
                             <option value="Tecnólogo en Administración Bancaria y de Instituciones Financieras">
                                 Tecnólogo en Administración Bancaria y de Instituciones Financieras</option>
                             <option value="Tecnólogo en Gestión de Negocios Fiduciarios">Tecnólogo en Gestión de
@@ -176,44 +176,60 @@
                 </div>
                 <br>
 
-                <br><br><br><br><br>
+                <div class="col-2">
+                    <a href="#" type="button" onclick="limpiarFormulario()" class="btn btn-outline-primary">+ Nuevo
+                        aprendiz</a>
+                </div>
         </form>
-        <div class="row">
+        <br>
+        <div class="row" style="padding-top: 1%;">
+            <br>
             <div class="col">
-                <a href="#" type="button" onclick="ver()" class="btn    btn-outline-primary">Ver</a>
-               
-                <!-- Agrega esto en la parte del cuerpo de tu HTML -->
-<table class="table" >
-    <thead>
-        <tr>
-            <th>Nombres</th>
-            <th>Apellidos</th>
-            <th>Tipo de Documento</th>
-            <th>Número de Documento</th>
-           
-            
-        
-        </tr>
-    </thead>
-    <tbody id="tableBody">
-        <!-- Aquí se agregarán las filas dinámicamente -->
-    </tbody>
-</table>
+                <a href="#" type="button" onclick="ver()" class="btn    btn-outline-primary"
+                    id="consultarBtn">Consultar</a>
+                <br>
+                <br>
+                <div class="col" id="tablaAprendices" style="display: none;">
+                    <h1>Aprendices registrados</h1>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nombres</th>
+                                <th>Apellidos</th>
+                                <th>Tipo de Documento</th>
+                                <th>Número de Documento</th>
+
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+
+                        </tbody>
+                    </table>
+                </div>
 
             </div>
 
-    
-    </main>
-  <!-- BOOTSTRAP -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- FIREBASE -->
 
-  <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore-compat.js"></script>
-  <!-- JS -->
-  <script src="js/configuracion.js"></script>
-  <script src="js/guardar.js"></script>
-  <script src="js/ver.js"></script>
+    </main>
+
+    <script>
+         function toggleTabla() {
+        var tabla = document.getElementById('tablaAprendices');
+        tabla.style.display = (tabla.style.display === 'none' || tabla.style.display === '') ? 'block' : 'none';
+    }
+
+    </script>
+    <!-- BOOTSTRAP -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- FIREBASE -->
+
+    <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore-compat.js"></script>
+    <!-- JS -->
+    <script src="js/configuracion.js"></script>
+    <script src="js/guardar.js"></script>
+    <script src="js/ver.js"></script>
 
 
 

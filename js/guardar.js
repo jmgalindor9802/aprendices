@@ -26,4 +26,26 @@ function guardar(){
     //  console.error("Error adding document: ", error);
       alert("Error en el registro de Usuarios")
   });
+  event.preventDefault();
   }
+
+  function limpiarFormulario() {
+    console.log("Limpiando el formulario");
+    document.getElementById('nombres').value = '';
+    document.getElementById('apellidos').value = '';
+    document.getElementById('tipoDocumento').value = '';
+    document.getElementById('numDocumento').value = '';
+    document.getElementById('fechaNacimiento').value = '';
+    document.getElementById('telefono').value = '';
+    document.getElementById('correo').value = '';
+    document.getElementById('municipio').value = '';
+    document.getElementById('localidad').value = '';
+    document.getElementById('barrio').value = '';
+    document.getElementById('acudiente').value = '';
+    document.getElementById('tipoAcudiente').value = '';
+    document.getElementById('colegio').value = '';
+    document.getElementById('programa').value = '';
+    document.getElementById('jornada').value = '';
+
+    event.preventDefault();
+}
